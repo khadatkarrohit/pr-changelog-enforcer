@@ -1,0 +1,37 @@
+name: 'PR Changelog Enforcer'
+description: 'Blocks PR merge if CHANGELOG.md is not properly updated with a new entry'
+author: 'rohitkhadatkar18'
+
+inputs:
+  github-token:
+    description: 'GitHub token for API access'
+    required: true
+    default: ${{ github.token }}
+  changelog-file:
+    description: 'Path to the changelog file'
+    required: false
+    default: 'CHANGELOG.md'
+  skip-label:
+    description: 'PR label that bypasses changelog enforcement'
+    required: false
+    default: 'skip-changelog'
+  exempt-bots:
+    description: 'Auto-exempt PRs from known bots (dependabot, renovate, github-actions)'
+    required: false
+    default: 'true'
+  exempt-paths:
+    description: 'Comma-separated glob patterns. PRs touching only these paths are exempt'
+    required: false
+    default: ''
+  require-unreleased-section:
+    description: 'Require new entry under ## [Unreleased] section (not just any file change)'
+    required: false
+    default: 'true'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+
+branding:
+  icon: 'book-open'
+  color: 'orange'
