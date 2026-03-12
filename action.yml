@@ -1,5 +1,5 @@
 name: 'PR Changelog Enforcer'
-description: 'Blocks PR merge if CHANGELOG.md is not properly updated with a new entry'
+description: 'Enforce changelog updates on every PR — validates new entries under [Unreleased], auto-exempts bots, supports skip labels and path exemptions'
 author: 'rohitkhadatkar18'
 
 inputs:
@@ -33,5 +33,5 @@ runs:
   main: 'dist/index.js'
 
 branding:
-  icon: 'book-open'
+  icon: 'book'
   color: 'orange'
