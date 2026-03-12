@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: khadatkarrohit/pr-changelog-enforcer@v1
+      - uses: your-org/pr-changelog-enforcer@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -48,7 +48,7 @@ Dependabot and Renovate PRs are auto-exempt when `exempt-bots: true`.
 ### Path-based exemptions
 PRs that only touch docs or CI files can be exempt:
 ```yaml
-- uses: khadatkarrohit/pr-changelog-enforcer@v1
+- uses: your-org/pr-changelog-enforcer@v1
   with:
     exempt-paths: 'docs/**,*.md,.github/**'
 ```
